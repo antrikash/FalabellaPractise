@@ -1,2 +1,0 @@
-# FalabellaPractise
-Created with CodeSandbox

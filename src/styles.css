@@ -1,0 +1,23 @@
+label {
+  display: block;
+  font-weight: bold;
+  margin-top: 10px;
+}
+button {
+  margin-top: 1rem;
+}
+body {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  font-family: la;
+}
+
+#tableId {
+  margin-right: 15px;
+  padding-right: 10px;
+}
+
+#noresult {
+  color: red;
+}
