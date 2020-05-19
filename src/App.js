@@ -19,10 +19,10 @@ class App extends React.Component {
   addMovie = e => {
     e.preventDefault();
     let DurLastLetter = this.state["duration-input"].slice(-1);
-    // let isValid = DurLastLetter === "h" || DurLastLetter === "m";
-    // let duration = this.state["duration-input"];
     if (DurLastLetter === "h") {
       var duration = `${this.state["duration-input"].slice(0, -1) * 60}m`;
+    } else {
+      duration = this.state["duration-input"];
     }
     let newList = [...this.state.movieList];
     newList = [
@@ -44,8 +44,10 @@ class App extends React.Component {
             mve.name.includes(this.state["search-input"])
           )
         : this.state.movieList;
+    let sortedList = filterDataList.sort(
+      (mve1, mve2) => mve2.duration.slice(0, -1) - mve1.duration.slice(0, -1)
+    );
 
-    console.log(filterDataList, "Antriksh");
     return (
       <Fragment>
         <input
@@ -64,8 +66,8 @@ class App extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {filterDataList.length > 0 ? (
-              filterDataList.map((mov, i) => (
+            {sortedList.length > 0 ? (
+              sortedList.map((mov, i) => (
                 <tr key={i}>
                   <td>{mov.name}</td>
                   <td>{mov.ratings}</td>
